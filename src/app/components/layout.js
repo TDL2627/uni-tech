@@ -3,9 +3,9 @@ import Footer from "./Footer/index.client";
 export default function Layout({ children }) {
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
   }
