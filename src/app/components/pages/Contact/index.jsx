@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import WhatsAppButton from '../../Global/Whatsapp';
 
 const ContactForm = () => {
   const initialValues = {
@@ -88,6 +89,7 @@ const ContactForm = () => {
             </Form>
           )}
         </Formik>
+        <WhatsAppButton />
       </div>
     </div>
   );
