@@ -10,8 +10,16 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <title>UniTech</title>
+        <link rel="icon" href="/images/untech-logo.png" />
+        <meta property="og:image:alt" content="UniTech Header" />
+      </Head>
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }

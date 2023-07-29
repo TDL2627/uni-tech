@@ -11,7 +11,9 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="text-white font-bold text-xl">UniTech</div>
+        <Link href="/">
+          <div className="text-yellow hover:text-white font-bold text-xl">UniTech</div>
+        </Link>
         <div className="hidden md:flex space-x-4">
           <Link href="/">
             <p className="text-white cursor-pointer">Home</p>

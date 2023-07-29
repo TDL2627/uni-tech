@@ -2,7 +2,6 @@ import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsAppButton = () => {
-  const phoneNumber = 'YOUR_PHONE_NUMBER'; // Replace with your actual WhatsApp number
 
   const handleWhatsAppClick = () => {
     const url = `https://wa.me/+27660400809`;
