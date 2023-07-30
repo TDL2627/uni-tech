@@ -1,3 +1,4 @@
+import HowToRentAFridge from "@/app/components/HowTo";
 import Landng from "@/app/components/landing/index.client";
 import About from "@/app/components/pages/About";
 import ContactForm from "@/app/components/pages/Contact";
@@ -9,6 +10,7 @@ export default function Home() {
       <Landng />
       <About />
       <Products />
+      <HowToRentAFridge/>
       <Testimonials />
       <ContactForm />
     </>

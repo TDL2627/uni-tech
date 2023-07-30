@@ -1,95 +1,55 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import WhatsAppButton from '../../Global/Whatsapp';
-
+import { useForm, ValidationError } from '@formspree/react';
 const ContactForm = () => {
-  const initialValues = {
-    name: '',
-    email: '',
-    message: '',
-  };
+  const [state, handleSubmit] = useForm("mleygjgw");
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-    message: Yup.string().required('Message is required'),
-  });
-
-  const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    // Simulate form submission (you can implement the actual form submission logic here)
-    setTimeout(() => {
-      console.log(values);
-      setSubmitting(false);
-      resetForm();
-    }, 1000);
-  };
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
 
   return (
     <div id='contact' className="bg-gray-100 py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
-                    Name
-                  </label>
-                  <Field
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
-                  />
-                  <ErrorMessage name="name" component="div" className="text-red-500" />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                    Email
-                  </label>
-                  <Field
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
-                  />
-                  <ErrorMessage name="email" component="div" className="text-red-500" />
-                </div>
-              </div>
-              <div>
-                <div className="mb-4">
-                  <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
-                    Message
-                  </label>
-                  <Field
-                    as="textarea"
-                    id="message"
-                    name="message"
-                    rows="4"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
-                  />
-                  <ErrorMessage name="message" component="div" className="text-red-500" />
-                </div>
-              </div>
-              <div className="col-span-2">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-blue-500 text-white rounded-md font-bold shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
-                </button>
-              </div>
-            </Form>
-          )}
-        </Formik>
-        <WhatsAppButton />
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+          <div className="mb-4">
+            <label htmlFor="email" className="block mb-1">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              className="w-full p-2 border rounded-md"
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+              className="text-red-600"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="message" className="block mb-1">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              className="w-full p-2 border rounded-md"
+              rows="4"
+            />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+              className="text-red-600"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );
