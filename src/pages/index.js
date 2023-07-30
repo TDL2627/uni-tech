@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Landng />
       <About />
-      <Products />
+      {/* <Products /> */}
       <HowToRentAFridge/>
       <Testimonials />
       <ContactForm />

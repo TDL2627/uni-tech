@@ -33,11 +33,11 @@ const Navbar = () => {
       setIsDesktopNavVisible(false);
     }, 3000);
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setIsDesktopNavVisible(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsDesktopNavVisible(false);
+  //   }, 3000);
+  // }, []);
 
   return (
     <nav
