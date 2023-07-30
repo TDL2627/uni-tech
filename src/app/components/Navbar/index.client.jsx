@@ -8,9 +8,15 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const scrollTo = (elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  };
 
   return (
-    <nav className="bg-black border-b border-white p-4">
+    <nav className="bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full">
       <div className="container mx-auto flex items-center justify-between">
         <Link className="w-max" href="/">
           <div className="text-yellow-500 flex justify-center items-center w-40  hover:text-white font-bold text-xl">
@@ -21,15 +27,16 @@ const Navbar = () => {
           <Link href="/">
             <p className="text-white cursor-pointer">Home</p>
           </Link>
-          <Link href="/about">
+          <button onClick={()=>{scrollTo("about")}}>
             <p className="text-white cursor-pointer">About</p>
-          </Link>
+          </button>
           <Link href="/services">
             <p className="text-white cursor-pointer">Services</p>
           </Link>
-          <Link href="/contact">
+          <button onClick={()=>{scrollTo("contact")}}>
+
             <p className="text-white cursor-pointer">Contact</p>
-          </Link>
+          </button>
         </div>
         <div className="md:hidden flex items-center">
           <button
