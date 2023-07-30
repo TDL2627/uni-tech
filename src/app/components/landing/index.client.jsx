@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <>
       <>
-      <div id="landing" className="w-full h-[92vh] bg-black grid md:flex place-content-center md:justify-between px-10 items-center">
+      <div id="landing" className="w-full h-screen bg-black grid md:flex place-content-center md:justify-between px-10 items-center">
         <div data-aos="fade-right" className="text-center">
           <h1 className="text-white md:text-9xl poppin text-4xl font-semibold mb-4">
             UniTech

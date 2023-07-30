@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { UniTechLogoWhite } from "../Icons/index.client";
 
@@ -11,26 +11,63 @@ const Navbar = () => {
   const scrollTo = (elementId) => {
     const element = document.getElementById(elementId);
     if (element) {
-      element.scrollIntoView({behavior: 'smooth', block: 'start'});
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+  const [isDesktopNavVisible, setIsDesktopNavVisible] = useState(true);
+  const hoverTimeoutRef = useRef(null);
+  const handleMouseEnter = () => {
+    // Clear any existing timeout to avoid multiple setTimeout calls
+    clearTimeout(hoverTimeoutRef.current);
+    setIsDesktopNavVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Clear the timeout if the user hovers back onto the Navbar
+    clearTimeout(hoverTimeoutRef.current);
+    // Set a new timeout to hide the desktop nav after 3 seconds
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsDesktopNavVisible(false);
+    }, 3000);
+  };
+  useEffect(()=>{
+   setTimeout(() => {
+      setIsDesktopNavVisible(false);
+    }, 3000); 
+  },[])
 
   return (
-    <nav className="bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full">
+    <nav
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={  `${isDesktopNavVisible ? "opacity-1" : "opacity-0"} transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full`}
+    >
       <div className="container mx-auto flex items-center justify-between">
-        <button onClick={()=>{scrollTo("landing")}}  className="text-yellow-500 flex justify-center items-center md:w-40 w-64 hover:text-white font-bold text-xl" href="/">
-           <h2>UniTech</h2>  <UniTechLogoWhite  className={"h-10 text-red-500"}/>
+        <button
+          onClick={() => {
+            scrollTo("landing");
+          }}
+          className="text-yellow-500 flex justify-center items-center md:w-40 w-64 hover:text-white font-bold text-xl"
+          href="/"
+        >
+          <h2>UniTech</h2> <UniTechLogoWhite className={"h-10 text-red-500"} />
         </button>
         <div className="hidden md:flex space-x-4">
-        
-          <button onClick={()=>{scrollTo("about")}}>
+          <button
+            onClick={() => {
+              scrollTo("about");
+            }}
+          >
             <p className="text-white cursor-pointer">About</p>
           </button>
           <Link href="/services">
             <p className="text-white cursor-pointer">Services</p>
           </Link>
-          <button onClick={()=>{scrollTo("contact")}}>
-
+          <button
+            onClick={() => {
+              scrollTo("contact");
+            }}
+          >
             <p className="text-white cursor-pointer">Contact</p>
           </button>
         </div>
