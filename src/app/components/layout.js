@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main className={`${poppy.variable} min-h-screen `}>{children}</main>
+      <main className={`${poppy.variable} min-h-screen overflow-hidden `}>{children}</main>
       <Footer />
     </>
   );

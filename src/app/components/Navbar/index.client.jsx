@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { UniTechLogoWhite } from "../Icons/index.client";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,10 +10,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-black border-b border-white p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/">
-          <div className="text-yellow hover:text-white font-bold text-xl">UniTech</div>
+        <Link className="w-max" href="/">
+          <div className="text-yellow-500 flex justify-center items-center w-40  hover:text-white font-bold text-xl">
+           <h2>UniTech</h2>  <UniTechLogoWhite  className={"h-10 text-red-500"}/>
+          </div>
         </Link>
         <div className="hidden md:flex space-x-4">
           <Link href="/">
