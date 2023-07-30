@@ -18,15 +18,11 @@ const Navbar = () => {
   return (
     <nav className="bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full">
       <div className="container mx-auto flex items-center justify-between">
-        <Link className="w-max" href="/">
-          <div className="text-yellow-500 flex justify-center items-center w-40  hover:text-white font-bold text-xl">
+        <button onClick={()=>{scrollTo("landing")}}  className="text-yellow-500 flex justify-center items-center md:w-40 w-64 hover:text-white font-bold text-xl" href="/">
            <h2>UniTech</h2>  <UniTechLogoWhite  className={"h-10 text-red-500"}/>
-          </div>
-        </Link>
+        </button>
         <div className="hidden md:flex space-x-4">
-          <Link href="/">
-            <p className="text-white cursor-pointer">Home</p>
-          </Link>
+        
           <button onClick={()=>{scrollTo("about")}}>
             <p className="text-white cursor-pointer">About</p>
           </button>
