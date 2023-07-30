@@ -8,7 +8,10 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  const scrollTo = (elementId) => {
+  const scrollTo = (elementId) => { 
+    setTimeout(() => {
+      setIsDesktopNavVisible(false);
+    }, 500);
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -30,17 +33,19 @@ const Navbar = () => {
       setIsDesktopNavVisible(false);
     }, 3000);
   };
-  useEffect(()=>{
-   setTimeout(() => {
+  useEffect(() => {
+    setTimeout(() => {
       setIsDesktopNavVisible(false);
-    }, 3000); 
-  },[])
+    }, 3000);
+  }, []);
 
   return (
     <nav
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={  `${isDesktopNavVisible ? "opacity-1" : "opacity-0"} transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full`}
+      className={`${
+        isDesktopNavVisible ? "opacity-1" : "opacity-0"
+      } transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <button

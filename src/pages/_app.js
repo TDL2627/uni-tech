@@ -13,7 +13,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>UniTech</title>
-        <link rel="icon" href="/images/untech-logo.png" />
+        <link rel="icon" href="/images/unitech.png" />
         <meta property="og:image:alt" content="UniTech Header" />
       </Head>
 
