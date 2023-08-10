@@ -27,7 +27,7 @@ const HowToRentAFridge = () => {
   ];
   return (
     <div id="howTo" className="p-6 text-start bg-white ">
-      <h2 className="text-3xl font-bold mb-6  text-center">How to Rent a Fridge</h2>
+      <h2 className="text-3xl font-bold mb-6 uppercase  text-center">How to Rent a Fridge</h2>
       <ul className="list-none  mx-20 space-y-3">
         {instructions.map((instruction, index) => (
           <li key={index} className="mb-3">
