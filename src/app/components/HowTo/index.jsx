@@ -27,7 +27,7 @@ const HowToRentAFridge = () => {
       // ... (remaining steps, if any)
     ];
   return (
-    <div id="howTo" className="p-6 text-center bg-gray-100 ">
+    <div id="howTo" className="p-6 text-center bg-white ">
 
       <h2 className="text-3xl font-bold mb-6">How to Rent a Fridge</h2>
       <ul className="list-none space-y-3">
