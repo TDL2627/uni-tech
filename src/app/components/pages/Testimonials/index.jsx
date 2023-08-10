@@ -25,9 +25,9 @@ const Testimonials = () => {
         <h2 className="text-3xl font-bold text-center mb-8">Testimonials</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-gray-400 p-6 rounded-lg shadow-md">
-              <p className="text-gray-700 italic mb-4">"{testimonial.comment}"</p>
-              <p className="text-gray-800 font-semibold">{testimonial.name}</p>
+            <div key={testimonial.id} className="bg-black p-6 rounded-lg shadow-md">
+              <p className="text-white italic mb-4">"{testimonial.comment}"</p>
+              <p className="text-white font-semibold">{testimonial.name}</p>
             </div>
           ))}
         </div>
