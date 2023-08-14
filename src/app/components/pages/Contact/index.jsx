@@ -10,7 +10,7 @@ const ContactForm = () => {
   return (
     <div id="contact" className="bg-white py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 uppercase">Contact Us</h2>
+        <h2 data-aos="fade-up" className="text-3xl font-bold text-center mb-8 uppercase">Contact Us</h2>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
           <div className="mb-4">
             <label htmlFor="email" className="block mb-1">

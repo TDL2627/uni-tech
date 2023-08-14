@@ -7,7 +7,7 @@ const Landing = () => {
       <>
       <div id="landing" className="w-full h-screen bg-black grid md:flex place-content-center md:justify-between px-10 items-center">
         <div data-aos="fade-right" className="text-center">
-          <h1 className="text-white md:text-9xl poppin text-4xl font-semibold mb-4">
+          <h1 className="text-white md:text-[200px] poppin text-4xl font-semibold mb-4">
             UniTech
           </h1>
           <p className="text-white text-lg md:hidden">
