@@ -6,19 +6,19 @@ const Products = () => {
       id: 1,
       name: "Hisense (Silver)",
       image: "/images/fridge1.jpg",
-      description: "9 litre bar fridge.",
+      description: "92 litre bar fridge.",
     },
     {
       id: 2,
       name: "Defy (Grey)",
       image: "/images/fridge2.jpg",
-      description: "9 litre bar fridge.",
+      description: "92 litre bar fridge.",
     },
     {
       id: 3,
       name: "Defy (White)",
       image: "/images/fridge3.jpg",
-      description: "9 litre bar fridge.",
+      description: "92 litre bar fridge.",
     },
   ];
 

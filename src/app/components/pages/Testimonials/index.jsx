@@ -4,17 +4,17 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Katlego',
+      name: 'Ryan',
       comment: 'UniTech provided me with an excellent bar fridge for my dorm. It was in great condition and kept my food fresh throughout the semester. Highly recommended!',
     },
     {
       id: 2,
-      name: 'Morne',
+      name: 'Aaliyah',
       comment: 'I rented a bar fridge from UniTech, and it was perfect for my small apartment. The rental process was smooth, and the customer service was fantastic.',
     },
     {
       id: 3,
-      name: 'Kyle',
+      name: 'Xolani',
       comment: 'The bar fridge I rented from UniTech was spacious and had plenty of room for all my groceries. I am very satisfied with their service.',
     }
   ];
