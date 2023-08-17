@@ -50,7 +50,9 @@ const Navbar = () => {
   //     setIsDesktopNavVisible(false);
   //   }, 3000);
   // }, []);
-  console.log(pathname, "aye");
+  console.log("I love you Zainunesa");
+  console.log("girl you so beautiful");
+  console.log("Girl you can get this check right now but you dont know do you");
   return (
     <nav
       // onMouseEnter={handleMouseEnter}
@@ -64,7 +66,7 @@ const Navbar = () => {
           onClick={() => {
             scrollTo("landing");
           }}
-          className="text-yellow-500 flex justify-center  items-center md:w-40 w-64 hover:text-white font-bold text-xl"
+          className="text-yellow-500 md:flex justify-center hidden items-center md:w-40 w-64 hover:text-white font-bold text-xl"
           href="/"
         >
           <h2>UniTech</h2> <UniTechLogoWhite className={"h-10 text-red-500"} />
@@ -105,10 +107,28 @@ const Navbar = () => {
           >
             <p className="text-white cursor-pointer">Contact</p>
           </button>
-        </div>
-        <div className="md:hidden flex items-center">
           <button
-            className="text-white focus:outline-none"
+            onClick={() => {
+              router.push("/terms");
+            }}
+          >
+            <p className="text-white cursor-pointer">T's & C's</p>
+          </button>
+        </div>
+        <div className="md:hidden flex items-center justify-between w-full">
+          <button
+            onClick={() => {
+              scrollTo("landing");
+              toggleMobileMenu();
+            }}
+            className="text-yellow-500 flex justify-center  items-center w-[200px] hover:text-white font-bold text-xl"
+            href="/"
+          >
+            <h2>UniTech</h2>{" "}
+            <UniTechLogoWhite className={"h-10 text-red-500"} />
+          </button>
+          <button
+            className="text-white focus:outline-none  float-right"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? (
@@ -179,6 +199,15 @@ const Navbar = () => {
             }}
           >
             <p className="text-white cursor-pointer">Contact</p>
+          </button>
+          <button
+            onClick={() => {
+              router.push("/terms");
+              toggleMobileMenu();
+
+            }}
+          >
+            <p className="text-white cursor-pointer">T's & C's</p>
           </button>
         </div>
       )}
