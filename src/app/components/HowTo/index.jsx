@@ -59,7 +59,7 @@ const HowToRentAFridge = () => {
       >
         How to Rent a Fridge
       </h2>
-      <div className="mx-20 space-y-6">
+      <div className="md:mx-20 mx-4 space-y-6">
         {instructions.map((instruction, index) => (
           <TimelineBlock
             key={index}

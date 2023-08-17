@@ -24,7 +24,7 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100 py-12">
-      <div className="container mx-auto px-4">
+      <div id="products" className="container mx-auto px-4">
         <h2
           data-aos="fade-up"
           className="text-3xl font-bold text-center mb-8 uppercase"

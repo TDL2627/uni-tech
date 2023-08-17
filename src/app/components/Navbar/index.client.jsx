@@ -8,7 +8,7 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  const scrollTo = (elementId) => { 
+  const scrollTo = (elementId) => {
     setTimeout(() => {
       setIsDesktopNavVisible(false);
     }, 500);
@@ -52,7 +52,7 @@ const Navbar = () => {
           onClick={() => {
             scrollTo("landing");
           }}
-          className="text-yellow-500 flex justify-center items-center md:w-40 w-64 hover:text-white font-bold text-xl"
+          className="text-yellow-500 flex justify-center  items-center md:w-40 w-64 hover:text-white font-bold text-xl"
           href="/"
         >
           <h2>UniTech</h2> <UniTechLogoWhite className={"h-10 text-red-500"} />
@@ -65,9 +65,27 @@ const Navbar = () => {
           >
             <p className="text-white cursor-pointer">About</p>
           </button>
-          <Link href="/services">
-            <p className="text-white cursor-pointer">Services</p>
-          </Link>
+          <button
+            onClick={() => {
+              scrollTo("products");
+            }}
+          >
+            <p className="text-white cursor-pointer">Products</p>
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("howTo");
+            }}
+          >
+            <p className="text-white cursor-pointer">How to</p>
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("testi");
+            }}
+          >
+            <p className="text-white cursor-pointer">Testimonials</p>
+          </button>
           <button
             onClick={() => {
               scrollTo("contact");
@@ -109,19 +127,47 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-700 p-4">
-          <Link href="/">
-            <p className="text-white cursor-pointer">Home</p>
-          </Link>
-          <Link href="/about">
+        <div className="md:hidden bg-black h-full p-4 grid gap-4">
+          <button
+            onClick={() => {
+              scrollTo("about");
+              toggleMobileMenu();
+            }}
+          >
             <p className="text-white cursor-pointer">About</p>
-          </Link>
-          <Link href="/services">
-            <p className="text-white cursor-pointer">Services</p>
-          </Link>
-          <Link href="/contact">
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("products");
+              toggleMobileMenu();
+            }}
+          >
+            <p className="text-white cursor-pointer">Products</p>
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("howTo");
+              toggleMobileMenu();
+            }}
+          >
+            <p className="text-white cursor-pointer">How to</p>
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("testi");
+              toggleMobileMenu();
+            }}
+          >
+            <p className="text-white cursor-pointer">Testimonials</p>
+          </button>
+          <button
+            onClick={() => {
+              scrollTo("contact");
+              toggleMobileMenu();
+            }}
+          >
             <p className="text-white cursor-pointer">Contact</p>
-          </Link>
+          </button>
         </div>
       )}
     </nav>
