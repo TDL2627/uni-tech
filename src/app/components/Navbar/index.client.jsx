@@ -1,17 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { UniTechLogoWhite } from "../Icons/index.client";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   const scrollTo = (elementId) => {
-    setTimeout(() => {
-      setIsDesktopNavVisible(false);
-    }, 500);
+    // setTimeout(() => {
+    //   setIsDesktopNavVisible(false);
+    // }, 500);
+    if (pathname == "/terms") {
+      router.push("/");
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 1000);
+    }
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -19,30 +31,30 @@ const Navbar = () => {
   };
   const [isDesktopNavVisible, setIsDesktopNavVisible] = useState(true);
   const hoverTimeoutRef = useRef(null);
-  const handleMouseEnter = () => {
-    // Clear any existing timeout to avoid multiple setTimeout calls
-    clearTimeout(hoverTimeoutRef.current);
-    setIsDesktopNavVisible(true);
-  };
+  // const handleMouseEnter = () => {
+  //   // Clear any existing timeout to avoid multiple setTimeout calls
+  //   clearTimeout(hoverTimeoutRef.current);
+  //   setIsDesktopNavVisible(true);
+  // };
 
-  const handleMouseLeave = () => {
-    // Clear the timeout if the user hovers back onto the Navbar
-    clearTimeout(hoverTimeoutRef.current);
-    // Set a new timeout to hide the desktop nav after 3 seconds
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsDesktopNavVisible(false);
-    }, 3000);
-  };
+  // const handleMouseLeave = () => {
+  //   // Clear the timeout if the user hovers back onto the Navbar
+  //   clearTimeout(hoverTimeoutRef.current);
+  //   // Set a new timeout to hide the desktop nav after 3 seconds
+  //   hoverTimeoutRef.current = setTimeout(() => {
+  //     setIsDesktopNavVisible(false);
+  //   }, 3000);
+  // };
   // useEffect(() => {
   //   setTimeout(() => {
   //     setIsDesktopNavVisible(false);
   //   }, 3000);
   // }, []);
-
+  console.log(pathname, "aye");
   return (
     <nav
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
       className={`${
         isDesktopNavVisible ? "md:opacity-1" : "md:opacity-0"
       } transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full`}
