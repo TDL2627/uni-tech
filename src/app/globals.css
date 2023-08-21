@@ -3,6 +3,35 @@
 @tailwind utilities;
 
 /* fonts */
-.poppin{
-    font-family: var(--font-poppins);
-  }
+.poppin {
+  font-family: var(--font-poppins);
+}
+/* Add these styles to your CSS stylesheet */
+.timeline-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.timeline-card {
+  flex-shrink: 0;
+  width: 300px;
+  margin-right: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.timeline-card p {
+  margin: 0;
+}
+
