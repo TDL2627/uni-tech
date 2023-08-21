@@ -36,7 +36,7 @@ const HowToRentAFridge = () => {
       <div className="timeline-container">
         {instructions.map((instruction, index) => (
           <div key={index} className="timeline-card">
-            <h3>{instruction.step}</h3>
+            <h3 className="font-bold">{instruction.step}</h3>
             <p>{instruction.content}</p>
           </div>
         ))}
