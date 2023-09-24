@@ -2,10 +2,10 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div  className="bg-white py-12 ">
+    <div id='about' className="bg-white py-12 ">
       <div  className="container mx-auto px-4">
-        <h2  data-aos="fade-up" className="text-3xl font-bold text-center mb-8 uppercase">About</h2>
-        <p className="text-lg text-gray-700 text-start mb-8">
+        <h2   data-aos="fade-up" className="text-3xl font-bold text-center mb-8 uppercase">About</h2>
+        <p  className="text-lg text-gray-700 text-start mb-8">
           At UniTech, we specialize in providing top-quality fridges for rent to university students. We understand the importance of having a reliable fridge to keep your food fresh and your drinks cold while you focus on your studies and enjoy campus life.
         </p>
         <p className="text-lg text-gray-700 text-start mb-8">

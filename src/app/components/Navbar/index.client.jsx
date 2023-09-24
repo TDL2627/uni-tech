@@ -59,7 +59,7 @@ const Navbar = () => {
       // onMouseLeave={handleMouseLeave}
       className={`${
         isDesktopNavVisible ? "md:opacity-1" : "md:opacity-0"
-      } transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth fixed z-50 w-full`}
+      } transition-all duration-150 ease-out bg-black border-b border-white p-4 scroll-smooth sticky top-0 z-50 w-full`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <button
