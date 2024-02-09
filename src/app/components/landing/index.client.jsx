@@ -10,9 +10,10 @@ const Landing = () => {
           className="w-full h-screen bg-black grid md:flex place-content-center md:justify-between px-10 items-center"
         >
           <div data-aos="fade-right" className="text-center">
-            <h1 className="text-white md:text-[200px] poppin text-4xl font-semibold mb-4">
+            <h1 className="hidden">univeristytech</h1>
+            <h2 className="text-white md:text-[200px] poppin text-4xl font-semibold mb-4">
               UniTech
-            </h1>
+            </h2>
           </div>
           <div data-aos="fade-left" className="flex justify-center">
             {/* Replace 'UniTechLogoWhite' with the appropriate SVG or image component */}
