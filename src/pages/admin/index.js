@@ -1,4 +1,4 @@
-import Login from "@/app/components/Login/index.client";
+import Login from "../../app/components/Login/index.client";
 export default function Admin() {
   return (
     <>

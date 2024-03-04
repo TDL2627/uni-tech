@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
-import Spinner from "@/app/components/Spinner/index.client";
+import Spinner from "../../../app/components/Spinner/index.client";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
