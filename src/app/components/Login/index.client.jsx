@@ -18,6 +18,9 @@ export default function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         router.push("/admin/dashboard");
+        const user = userCredential.user;
+        const userEmail = user.email;
+        localStorage.setItem("email", userEmail);
       })
       .catch((error) => {
         console.error(error);
@@ -73,15 +76,6 @@ export default function Login() {
           </>
         )}
       </form>
-      <Link
-        className="text-white  text-center text-sm underline"
-        href="/pages/register"
-      >
-        Register
-      </Link>
-      <p className="text-gray-400 text-center text-sm">
-        &copy; Copyright {new Date().getFullYear()} by TDL2627
-      </p>
     </main>
   );
 }

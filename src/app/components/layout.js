@@ -1,7 +1,7 @@
 import Navbar from "./Navbar/index.client";
 import Footer from "./Footer/index.client";
 import { Poppins } from "next/font/google";
-import WhatsAppButton from "./Global/Whatsapp";
+import WhatsAppButton from "./Global/Whatsapp.client";
 const poppy = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
