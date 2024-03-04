@@ -1,8 +1,8 @@
-import Dash from "../../../app/components/Dashboard/index.client";
-export default function Dashboard() {
+import Inventory from "../../../app/components/Inventory/index.client";
+export default function InventoryPage() {
   return (
     <>
-      <Dash />
+      <Inventory />
     </>
   );
 }

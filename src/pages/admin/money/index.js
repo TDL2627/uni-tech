@@ -1,8 +1,8 @@
-import Dash from "../../../app/components/Dashboard/index.client";
-export default function Dashboard() {
+import Money from "../../../app/components/Money/index.client";
+export default function MoneyPage() {
   return (
     <>
-      <Dash />
+      <Money />
     </>
   );
 }
