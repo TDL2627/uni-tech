@@ -246,48 +246,25 @@ const Navbar = () => {
                 <h2>UniTech</h2>{" "}
                 <UniTechLogoWhite className={"h-10 text-red-500"} />
               </Link>
-              <div className="hidden lg:flex space-x-4">
+              <div className="hidden lg:flex space-x-4 items-center">
+                <Link href={"/admin/clients"}>
+                  <p className="text-white cursor-pointer">Clients</p>
+                </Link>
+                <Link href={"/admin/inventory"}>
+                  <p className="text-white cursor-pointer">Inventory</p>
+                </Link>
+                <Link href={"/admin/money"}>
+                  <p className="text-white cursor-pointer">Money</p>
+                </Link>
+               
                 <button
+                  className="bg-white p-1 rounded-md w-[100px]"
                   onClick={() => {
-                    scrollTo("about");
+                    localStorage.clear();
+                    router.push("/");
                   }}
                 >
-                  <p className="text-white cursor-pointer">About</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("products");
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Products</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("howTo");
-                  }}
-                >
-                  <p className="text-white cursor-pointer">How to</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("testi");
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Testimonials</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("contact");
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Contact</p>
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/terms");
-                  }}
-                >
-                  <p className="text-white cursor-pointer">T's & C's</p>
+                  <p className="text-red-500 cursor-pointer ">Logout</p>
                 </button>
               </div>
               <div className="lg:hidden flex items-center justify-between w-full">
@@ -334,54 +311,25 @@ const Navbar = () => {
             </div>
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-              <div className="md:hidden bg-black h-full p-4 grid gap-4">
+              <div className="md:hidden bg-gray-800 h-full text-center justify-items-center p-4 grid gap-4">
+                <Link href={"/admin/clients"}>
+                  <p className="text-white cursor-pointer">Clients</p>
+                </Link>
+                <Link href={"/admin/inventory"}>
+                  <p className="text-white cursor-pointer">Inventory</p>
+                </Link>
+                <Link href={"/admin/money"}>
+                  <p className="text-white cursor-pointer">Money</p>
+                </Link>
+               
                 <button
+                  className="bg-white p-1 rounded-md w-[100px]"
                   onClick={() => {
-                    scrollTo("about");
-                    toggleMobileMenu();
+                    localStorage.clear();
+                    router.push("/");
                   }}
                 >
-                  <p className="text-white cursor-pointer">About</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("products");
-                    toggleMobileMenu();
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Products</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("howTo");
-                    toggleMobileMenu();
-                  }}
-                >
-                  <p className="text-white cursor-pointer">How to</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("testi");
-                    toggleMobileMenu();
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Testimonials</p>
-                </button>
-                <button
-                  onClick={() => {
-                    scrollTo("contact");
-                    toggleMobileMenu();
-                  }}
-                >
-                  <p className="text-white cursor-pointer">Contact</p>
-                </button>
-                <button
-                  onClick={() => {
-                    router.push("/terms");
-                    toggleMobileMenu();
-                  }}
-                >
-                  <p className="text-white cursor-pointer">T's & C's</p>
+                  <p className="text-red-500 cursor-pointer ">Logout</p>
                 </button>
               </div>
             )}
