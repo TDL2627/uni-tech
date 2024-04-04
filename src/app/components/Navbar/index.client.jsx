@@ -60,8 +60,8 @@ const Navbar = () => {
     } else {
       setIsAdmin(true);
     }
-    if (
-      pathname.includes("admin") &&
+    if ( pathname &&
+      pathname?.includes("admin") &&
       pathname !== "/admin" &&
       userEmail !== "admin@universitytech.co.za"
     ) {

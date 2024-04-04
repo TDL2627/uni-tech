@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
 
   return (
     <>
-      {!pathname.includes("admin") && (
+      {!pathname?.includes("admin") && (
         <button
           onClick={handleWhatsAppClick}
           className="fixed bottom-8 right-8 bg-green-500 text-white p-3 rounded-full shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
