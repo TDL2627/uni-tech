@@ -1,21 +1,15 @@
+import Client from "../../../../app/components/Clients/Client/index.client";
 
-
-export default function Client({ params }) {
+export default function ClientPage() {
   // const clientId = params.id;
-console.log(params,"Aye p");
 
-  
+  // console.log(pathname,"aye ");
+  // const clientId = parseInt(pathname.split('/').pop());
+  // console.log(clientId,"aye ");
+
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-black text-white gap-4">
-      {/* {product === null ? (
-        <>
-          <p>Loading...</p>
-        </>
-      ) : ( */}
-        <>
-         {/* <p>Client : {clientId}</p> */}
-        </>
-      {/* )} */}
-    </div>
+    <>
+      <Client />
+    </>
   );
 }
