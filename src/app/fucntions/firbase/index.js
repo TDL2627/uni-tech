@@ -33,3 +33,16 @@ export const deleteDocument = async (props) => {
     console.log(error);
   }
 };
+export const getDocuments = async (props) => {
+  const { table} = props;
+  try {
+    const arr= []
+    const querySnapshot = await getDocs(collection(db, table));
+    querySnapshot.forEach((doc) => {
+ƒ      arr.push(doc.data())
+    });
+    return arr;
+  } catch (error) {
+    console.log(error);
+  }
+};
