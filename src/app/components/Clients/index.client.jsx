@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddClient from "./AddClient/index.client";
 import Client from "./Client/index.client";
+import Spinner from "../Spinner/index.client";
 const Clients = (props) => {
   const { clients } = props;
 
@@ -101,7 +102,7 @@ const Clients = (props) => {
             </>
           ) : (
             <div className="w-full text-center">
-              <p>Loading...</p>
+             <Spinner/>
             </div>
           )}
         </div>
