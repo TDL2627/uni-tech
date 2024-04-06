@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createDocument } from "../../../fucntions/firbase";
+import Spinner from "../../Spinner/index.client";
 const AddClient = () => {
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [newClient, setNewClient] = useState({
     name: "",
     address: "",
@@ -31,9 +33,14 @@ const AddClient = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    createDocument("clients", newClient);
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    await createDocument("clients", newClient);
+    setLoading(false);
+
     closeModal();
+    window.location.reload();
   };
 
   return (
@@ -118,7 +125,13 @@ const AddClient = () => {
                   onClick={handleSubmit}
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
-                  Add
+                  {loading == true ? (
+                    <>
+                      <Spinner />
+                    </>
+                  ) : (
+                    <>Add</>
+                  )}
                 </button>
               </div>
             </div>

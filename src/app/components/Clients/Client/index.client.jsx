@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import { editDocument, deleteDocument } from "../../../fucntions/firbase";
+import Spinner from "../../Spinner/index.client";
 const Client = ({ client, onClose }) => {
   const [editableClient, setEditableClient] = useState({ ...client });
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,17 +18,22 @@ const Client = ({ client, onClose }) => {
     setEditMode(true);
   };
 
-  const handleSave = () => {
-    // You can implement your save logic here
-    console.log("Saved:", editableClient);
+  const handleSave = async () => {
+    setLoading(true);
+    await editDocument("clients", editableClient.id, editableClient);
     setEditMode(false);
     onClose();
+    setLoading(false);
+    window.location.reload();
   };
 
-  const handleDelete = () => {
-    // You can implement your delete logic here
-    console.log("Deleted:", client);
+  const handleDelete = async () => {
+    setLoading(true);
+    await deleteDocument("clients", client.id);
+    setLoading(false);
+
     onClose();
+    window.location.reload();
   };
 
   return (
@@ -112,13 +119,25 @@ const Client = ({ client, onClose }) => {
                 className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
                 onClick={handleSave}
               >
-                Save
+                {loading == true ? (
+                  <>
+                    <Spinner />
+                  </>
+                ) : (
+                  <>Save</>
+                )}
               </button>
               <button
                 className="mr-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                 onClick={handleDelete}
               >
-                Delete
+                {loading == true ? (
+                  <>
+                    <Spinner />
+                  </>
+                ) : (
+                  <>Delete</>
+                )}
               </button>
             </>
           )}
