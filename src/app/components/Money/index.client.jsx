@@ -1,8 +1,11 @@
 import AddTrans from "./AddTransaction/index.client";
 import { useState } from "react";
+import Transaction from "./Transaction/index.client";
+
 const Money = (props) => {
   const { transactions } = props;
   const [tableToShow, setTableToShow] = useState("transactions");
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   console.log(transactions, "aye tras");
   const earnings = transactions.filter(
@@ -78,7 +81,11 @@ const Money = (props) => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {tableToShow === "transactions" &&
                   transactions.map((transaction, index) => (
-                    <tr key={index}>
+                    <tr
+                      className="cursor-pointer"
+                      onClick={() => setSelectedTransaction(transaction)}
+                      key={index}
+                    >
                       <td className="px-6 py-4 whitespace-pre-wrap border-r border-gray-300">
                         <div className="text-sm text-gray-900">
                           {transaction.date}
@@ -95,7 +102,13 @@ const Money = (props) => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-pre-wrap">
-                        <div className={`text-sm ${transaction.type == "Earning" ? "text-green-500":"text-red-500"}`}>
+                        <div
+                          className={`text-sm ${
+                            transaction.type == "Earning"
+                              ? "text-green-500"
+                              : "text-red-500"
+                          }`}
+                        >
                           R{transaction.amount}
                         </div>
                       </td>
@@ -103,7 +116,11 @@ const Money = (props) => {
                   ))}
                 {tableToShow === "earnings" &&
                   earnings.map((earning, index) => (
-                    <tr key={index}>
+                    <tr
+                      className="cursor-pointer"
+                      onClick={() => setSelectedTransaction(earning)}
+                      key={index}
+                    >
                       <td className="px-6 py-4 whitespace-pre-wrap border-r border-gray-300">
                         <div className="text-sm text-gray-900">
                           {earning.date}
@@ -128,7 +145,11 @@ const Money = (props) => {
                   ))}
                 {tableToShow === "expenses" &&
                   expenses.map((expense, index) => (
-                    <tr key={index}>
+                    <tr
+                      className="cursor-pointer"
+                      onClick={() => setSelectedTransaction(expense)}
+                      key={index}
+                    >
                       <td className="px-6 py-4 whitespace-pre-wrap border-r border-gray-300">
                         <div className="text-sm text-gray-900">
                           {expense.date}
@@ -177,6 +198,12 @@ const Money = (props) => {
               </tfoot>
             </table>
           </div>
+          {selectedTransaction && (
+            <Transaction
+              transaction={selectedTransaction}
+              onClose={() => setSelectedTransaction(null)}
+            />
+          )}
         </div>
       </div>
     </>
