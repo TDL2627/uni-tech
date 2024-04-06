@@ -14,12 +14,13 @@ import {
   getDocs,
   getDoc,
 } from "firebase/firestore";
-import db from "./firebase";
 
-export const createDocument = async (props) => {
-  const { table, data } = props;
+import { db } from "../../../firebase";
+export const createDocument = async (table, data) => {
+
+  console.log(table,data,"aye");
   try {
-    const docRef = await addDoc(collection(db, table), data);
+    await addDoc(collection(db, table), data);
   } catch (error) {
     console.log(error);
   }
@@ -33,16 +34,23 @@ export const deleteDocument = async (props) => {
     console.log(error);
   }
 };
-export const getDocuments = async (props) => {
-  const { table} = props;
+export const editDocument = async (props) => {
+  const { table, id, data } = props;
   try {
-    const arr= []
+    await setDoc(doc(db, table, id), data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getDocuments = async (table) => {
+  try {
+    const arr = [];
     const querySnapshot = await getDocs(collection(db, table));
     querySnapshot.forEach((doc) => {
-ƒ      arr.push(doc.data())
+      arr.push(doc.data());
     });
     return arr;
   } catch (error) {
-    console.log(error);
+    console.log(error, "aye");
   }
 };
